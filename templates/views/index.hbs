@@ -1,0 +1,33 @@
+{{!-- by default name the folder name = views but if not rename it as template and use pathjoin to adjust it
+and is done in src/app.js --}}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Weather</title>
+        <link rel="icon" href="/img/weather.png">
+        <link rel="stylesheet" href="/css/styles.css">
+        
+    </head>
+    <body>
+        <div class="main-content">
+            {{>header}}
+            <p>use this site to get your weather</p>
+
+
+            <form action="">
+                <input placeholder="Enter a location" type="text">
+                <button>Search</button>
+            </form>
+
+            <p id="message-1"></p>
+            <p id="message-2"></p>
+        </div>
+        
+        {{!-- <h1>{{title}}</h1> --}}
+        {{>footer}}
+
+
+        <script src="/js/app.js"></script>
+    </body>
+</html>
