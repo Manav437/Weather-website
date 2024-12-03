@@ -123,8 +123,8 @@ app.get('*', (req, res) => {        //* is called the wild-card character
 })
 
 
-
-app.listen(3000, () => {
+// port 3000 in local build
+app.listen(process.env.PORT, () => {
     console.log('server is up on port 3000');
 })
 
