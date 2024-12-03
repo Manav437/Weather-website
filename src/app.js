@@ -1,4 +1,3 @@
-const port = process.env.PORT
 const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
@@ -11,7 +10,7 @@ const forecast = require('./utils/forecast')
 
 
 const app = express()
-
+const port = process.env.PORT || 3000
 
 //define paths for express configs
 const publicDirectoryPath = path.join(__dirname, '../public')
