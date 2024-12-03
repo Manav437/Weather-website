@@ -1,3 +1,4 @@
+const port = process.env.PORT
 const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
@@ -124,7 +125,7 @@ app.get('*', (req, res) => {        //* is called the wild-card character
 
 
 // port 3000 in local build
-app.listen(process.env.PORT, () => {
+app.listen(port, () => {
     console.log('server is up on port 3000');
 })
 
