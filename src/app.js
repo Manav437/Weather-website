@@ -44,12 +44,10 @@ app.get('/about', (req, res) => {
 app.get('/help', (req, res) => {
     res.render('help', {
         name: 'Manav Gusain',
-        title: 'help',
-        helpText: 'this is some helpful text.'
+        title: 'Help',
+        helpText: 'This is some helpful text.'
     })
 })
-
-
 
 
 app.get('/weather', (req, res) => {
