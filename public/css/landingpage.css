@@ -172,28 +172,29 @@ body {
   /* height: 30vh; */
 }
 
+
+
 .features-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 40px;
   max-width: 1000px;
-  height: 30vh;
   margin: 0 auto;
 }
 
 .feature-item {
-  height: 80%;
+  position: relative;
   border: 1px solid #2C2C2C;
   background: #AFDDFF;
   padding: 30px;
   border-radius: 16px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   text-align: center;
-  transition: transform 0.3s;
+  transition: transform 0.1s ease-in-out;
 }
 
 .feature-item:hover {
-  transform: translateY(-5px);
+  transform: translateY(-15px) !important;
 }
 
 .feature-title {
@@ -273,7 +274,7 @@ body {
   flex-direction: column;
   gap: 20px;
   color: white;
-  /* background: #f9f9f9; */
+  max-height: 250px;
   background: linear-gradient(45deg, #3b8dcb, #0082c8, #3a8b9a, #4c6e91);
   background-size: 400% 400%;
   animation: gradientAnim 10s ease infinite;
@@ -370,4 +371,5 @@ body {
 #btn-two {
   background: #2C2C2C;
   color: white;
+  transition: all 0.3s ease;
 }
