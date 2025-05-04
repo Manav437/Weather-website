@@ -78,13 +78,17 @@ body {
 
 .cta-button {
   font-family: Clinton;
+  font-size: 25px;
   cursor: pointer;
   margin-top: 20px;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
+  line-height: 1.5;
   padding: 0.75rem 2rem;
-  border: 1px dashed white;
+  padding-top: 20px;
+  border: 1px solid white;
   background: #032848;
   color: #f5f5f5;
   border-radius: 9999px;
@@ -93,7 +97,7 @@ body {
 
 .cta-button:hover {
   background-color: #4c6e91;
-  border: 1px solid white;
+  border: 1px dashed white;
 }
 
 .cta-button:active {
@@ -101,6 +105,7 @@ body {
 }
 
 .arrow-icon {
+  font-size: 20px;
   transition: transform 0.3s ease;
 }
 
@@ -110,11 +115,45 @@ body {
 
 .canvas-container {
   position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: url('path_to_your_star_background_image.jpg'); /* You can add a background or animation here */
-  background-size: cover;
-  background-position: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: moveStar 10s linear infinite;
+}
+
+/* Random positions for each star */
+.star:nth-child(1) { top: 10%; left: 10%; animation-duration: 8s; animation-delay: 0s; }
+.star:nth-child(2) { top: 20%; left: 20%; animation-duration: 9s; animation-delay: 1s; }
+.star:nth-child(3) { top: 30%; left: 30%; animation-duration: 7s; animation-delay: 2s; }
+.star:nth-child(4) { top: 40%; left: 40%; animation-duration: 6s; animation-delay: 3s; }
+.star:nth-child(5) { top: 50%; left: 50%; animation-duration: 10s; animation-delay: 4s; }
+.star:nth-child(6) { top: 60%; left: 60%; animation-duration: 8s; animation-delay: 5s; }
+.star:nth-child(7) { top: 70%; left: 70%; animation-duration: 9s; animation-delay: 6s; }
+.star:nth-child(8) { top: 80%; left: 80%; animation-duration: 11s; animation-delay: 7s; }
+.star:nth-child(9) { top: 90%; left: 90%; animation-duration: 5s; animation-delay: 8s; }
+.star:nth-child(10){ top: 15%; left: 85%; animation-duration: 12s; animation-delay: 9s; }
+
+@keyframes moveStar {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) scale(0.5);
+    opacity: 0;
+  }
 }
 
 
@@ -280,6 +319,7 @@ body {
   animation: gradientAnim 10s ease infinite;
   padding: 25px;
   border-radius: 12px;
+  border: 1px solid #2C2C2C;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
