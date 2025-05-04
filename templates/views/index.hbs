@@ -1,33 +1,112 @@
-{{!-- by default name the folder name = views but if not rename it as template and use pathjoin to adjust it
-and is done in src/app.js --}}
-
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Weather</title>
-        <link rel="icon" href="/img/weather.png">
-        <link rel="stylesheet" href="/css/styles.css">
-        
-    </head>
-    <body>
-        <div class="main-content">
-            {{>header}}
-            <p>Your weather, your way—stay prepared, rain or shine!</p>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weatherly</title>
+  <link rel="icon" href="/img/weather.png">
+  <link rel="stylesheet" href="/css/landingpage.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+
+  {{!-- <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet"> --}}
+</head>
+
+<body>
+
+  <section class="aurora-hero">
+    <div class="hero-content" data-aos="fade-up">
+      {{!-- <span class="beta-badge">Beta Now Live!</span> --}}
+      <h1 class="hero-title">Weatherly</h1>
+      <p class="hero-description">
+        Your reliable source for weather updates, forecasts, and live alerts. Plan your day with confidence!
+      </p>
+      <button onclick="window.location.href='/weather'" class="cta-button">
+        Get Started
+        <span class="arrow-icon">&#8594;</span>
+      </button>
+    </div>
+    <div class="canvas-container">
+      <!-- Your stars or background animation goes here -->
+    </div>
+  </section>
 
 
-            <form action="">
-                <input placeholder="Enter a location" type="text">
-                <button>Search</button>
-            </form>
+  <section class="features-section">
+    <div class="features-container">
+      <div style="margin-top: 20px;" class="feature-item" data-aos="fade-up">
+        <h3 class="feature-title">Real Time Updates</h3>
+        <p class="feature-description">Up-to-the-minute weather conditions and forecasts for your city, wherever you are.</p>
+      </div>
+      <div class="feature-item" data-aos="fade-up">
+        <h3 class="feature-title">Forecasts</h3>
+        <p class="feature-description">Plan ahead with detailed forecasts for the next 7 days, updated in real-time.</p>
+      </div>
+      <div style="margin-top: 20px;" class="feature-item" data-aos="fade-up">
+        <h3 class="feature-title">Severe Weather Alerts</h3>
+        <p class="feature-description">Receive alerts for storms, floods, and other severe conditions in your area.</p>
+      </div>
+    </div>
+  </section>
 
-            <p id="message-1"></p>
-            <p id="message-2"></p>
-        </div>
-        
-        {{!-- <h1>{{title}}</h1> --}}
-        {{>footer}}
+  <section class="about-section">
+    <div class="about-container">
+      <h2>About Weatherly</h2>
+      <p data-aos="flip-down">Weatherly is designed to bring you the most accurate and real-time weather updates. Whether you're planning a weekend getaway or preparing for your daily commute, our platform helps you stay ahead of the weather, every day.</p>
+    </div>
+  </section>
+
+<section class="testimonials-section">
+  <h2>What Our Users Say</h2>
+  <div class="testimonials-container">
+    <div class="testimonial-item">
+      <p>"Weatherly has become my daily go-to for weather updates. I love the simplicity and accuracy!"</p>
+      <h4>- Karan Y.</h4>
+    </div>
+    <div class="testimonial-item">
+      <p>"The severe weather alerts have saved me more than once. Highly recommend this app!"</p>
+      <h4>- Kartikeya M.</h4>
+    </div>
+    <div class="testimonial-item">
+      <p>"Finally, a weather app that doesn't spam ads and actually gives reliable forecasts."</p>
+      <h4>- Siddarth K.</h4>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-container" data-aos="zoom-in">
+    <div class="faq-item">
+      <h4>Is Weatherly free to use?</h4>
+      <p>Yes! Weatherly is completely free with no hidden costs.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Do I need to create an account?</h4>
+      <p>No account needed—just enter your city and get instant weather updates.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Which locations are supported?</h4>
+      <p>We cover thousands of cities worldwide with real-time updates.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta2-section">
+  <h2>Stay Updated, Always</h2>
+  <p>Join thousands of users who trust Weatherly for their daily forecasts.</p>
+  <button onclick="window.location.href='/weather'" id="btn-two" class="cta-btn">Check Weather Now</button>
+</section>
 
 
-        <script src="/js/app.js"></script>
-    </body>
+    <footer class="footer">
+      <p>&copy; 2024 Weatherly Inc. | All Rights Reserved</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration:1500
+      });
+    </script>
+</body>
 </html>

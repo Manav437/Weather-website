@@ -6,9 +6,9 @@ const geocode = (address, callback) => {
     request({ url: url, json: true }, (error, response) => {
         debugger
         if (error) {
-            callback('unable to retrieve data form the API', undefined)
+            callback('Unable to retrieve data form the API', undefined)
         } else if (response.body.data.length === 0) {
-            callback('unable to search the given location. Please enter a different query', undefined)
+            callback('Unable to search the given location. Please enter a different query', undefined)
         } else {
             callback(undefined, {
                 latitude: response.body.data[0].latitude,

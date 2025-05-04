@@ -1,8 +1,11 @@
 
-
 <header>
-    <h1>{{title}}</h1>
-    <a href="/">Weather</a>
-    <a href="/about">About</a>
-    <a href="/help">Help</a>
+    <div class="head-div">
+        <a href="/"><img src="/img/back.png" alt=""></a>
+        <h1>{{title}}</h1>
+    </div>
+    
+    <a href="/weather" class="{{#if (eq activePage 'home')}}active{{/if}}">Weather</a>
+    <a href="/about" class="{{#if (eq activePage 'about')}}active{{/if}}">About</a>
+    <a href="/help" class="{{#if (eq activePage 'help')}}active{{/if}}">Help</a>
 </header>

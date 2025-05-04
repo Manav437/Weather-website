@@ -5,14 +5,16 @@ const forecast = (lat, long, callback) => {
     ///below is an object
     request({ url: url, json: true }, (error, response) => {
         if (error) {
-            callback('not able to fetch data from API', undefined)
+            callback('Not able to fetch data from API', undefined)
         } else if (response.body.error) {
-            callback('please enter correct coordinates', undefined)
+            callback('Please enter correct coordinates', undefined)
         } else {
             const weatherDesc = response.body.current.weather_descriptions[0]
             const currentTemp = response.body.current.temperature
             const feelsLikeTemp = response.body.current.feelslike
-            callback(undefined, weatherDesc + " - It is currently " + currentTemp + " degrees out. It feels like " + feelsLikeTemp + " degrees out.")
+            const humidity = response.body.current.humidity
+            const weatherIcons = response.body.current.weather_icons[0]
+            callback(undefined, weatherIcons, weatherDesc + "\n- It is currently " + currentTemp + " °F degrees out. It feels like " + feelsLikeTemp + " °F degrees out. Humidity will be " + humidity + " % today.")
         }
     })
 }

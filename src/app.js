@@ -26,18 +26,32 @@ hbs.registerPartials(partialsPath)
 //setup static directory to serve
 app.use(express.static(publicDirectoryPath))
 
+// Register helper function to compare values
+hbs.registerHelper("eq", function (a, b) {
+    return a === b;
+});
 
 app.get('', (req, res) => {
     res.render('index', {
-        title: "Weather App",
-        name: "Manav"
+        // title: "Weather App",
+        // name: "Manav Gusain",
+        // activePage: "home"
+    })
+})
+
+app.get('/weather', (req, res) => {
+    res.render('weather', {
+        title: "Weatherly",
+        name: "Manav Gusain",
+        activePage: "home"
     })
 })
 
 app.get('/about', (req, res) => {
     res.render('about', {
-        title: 'About Me',
-        name: 'Manav'
+        title: 'About',
+        name: 'Manav Gusain',
+        activePage: "about"
     })
 })
 
@@ -45,24 +59,26 @@ app.get('/help', (req, res) => {
     res.render('help', {
         name: 'Manav Gusain',
         title: 'Help',
-        helpText: 'This is some helpful text.'
+        activePage: "help",
+        helpText: 'Enter the city name in the search bar and click Search. The app will display the current weather(temperature, humidity, wind speed, etc.).You can also see weather conditions like Sunny, Cloudy, or Rainy.'
     })
 })
 
 
-app.get('/weather', (req, res) => {
+app.get('/weathers', (req, res) => {
     if (!req.query.address) {
         return res.send({
-            error: 'please provide an address term'
+            error: 'Please provide an address term.'
         })
     }
+
 
     geocode(req.query.address, (error, { latitude, longitude, state, city, country } = {}) => {
         if (error) {
             return res.send({ error: error })
         }
 
-        forecast(latitude, longitude, (error, forecastData) => {
+        forecast(latitude, longitude, (error, weatherIcons, forecastData) => {
             if (error) {
                 return res.send({ error })
             }
@@ -73,11 +89,10 @@ app.get('/weather', (req, res) => {
                 city: city,
                 country: country,
                 address: req.query.address,
+                weatherIcon: weatherIcons
             })
         })
     })
-
-
 
     // res.send({
     //     forecast: 'The weather here is Rainy',
@@ -90,7 +105,7 @@ app.get('/weather', (req, res) => {
 app.get('/products', (req, res) => {
     if (!req.query.search) {                    //makes sure that user provide a search term 
         return res.send({                       //in URL otherwise code outside if block will execute
-            error: 'please provide a search term'
+            error: 'Please provide a search term.'
         })
     }
 
@@ -125,6 +140,7 @@ app.get('*', (req, res) => {        //* is called the wild-card character
 app.listen(port, () => {
     console.log('server is up on port 3000');
 })
+
 
 
 
